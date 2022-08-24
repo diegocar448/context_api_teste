@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { CustomerContext } from "../contexts/customer";
 
-const CustomerForm = ({ onSubmit }) => {
+const CustomerForm = () => {
+    const { submit } = useContext(CustomerContext);
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -8,8 +10,8 @@ const CustomerForm = ({ onSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('dados componente', {name, email});
-
-        onSubmit({ name, email });
+ 
+        submit({ name, email });
     }
 
     return (

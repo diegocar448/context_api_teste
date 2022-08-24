@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CustomerContext } from '../contexts/customer';
 
-const Hello = ({ name }) => {
-    return (
-      <div>{ name }</div>
-    )
+const Hello = () => {
+    const { name } = useContext(CustomerContext);
+
+    return <h1>{ name }</h1>;
 }
 
 export default Hello;
